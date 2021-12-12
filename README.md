@@ -1,6 +1,4 @@
-#+TITLE: Yes Operator Website
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b3dac31e-a357-4a01-866e-dff861f4fe17/deploy-status)](https://app.netlify.com/sites/frosty-khorana-da68bf/deploys)
+# Yes Operator Website
 
 # Technology
 
@@ -12,26 +10,27 @@
 # Log
 
 1. `hugo new site <name>`
-2. `hugo new theme yesoperator`
-3. In config.toml, add `theme = 'yesoperator'`
-4. Followed this guide to integrate Tailwind and Hugo https://www.brycewray.com/posts/2021/11/making-tailwind-jit-work-hugo/
+1. `hugo new theme yesoperator`
+1. In config.toml, add `theme = 'yesoperator'`
+1. Followed this guide to integrate Tailwind and Hugo https://www.brycewray.com/posts/2021/11/making-tailwind-jit-work-hugo/
    1. `npm init -y` in project root, not theme root
-   2. Copied scripts from the guide into package.json
-   3. Modified `tw.css -> tw-input.css` and `index.css -> tw-output.css` for clarity
-   4. Merged `partials/head.html` from https://dakotaleemartinez.com/tutorials/hugo-and-tailwind-css/#configuring-tailwindcss-with-postcss
+   1. Copied scripts from the guide into package.json
+   1. Modified `tw.css -> tw-input.css` and `index.css -> tw-output.css` for clarity
+   1. Merged `partials/head.html` from https://dakotaleemartinez.com/tutorials/hugo-and-tailwind-css/#configuring-tailwindcss-with-postcss
 
 # Dev environment setup
 
 1. Clone this repo
-2. `npm install`
-3. `npm start` to run hugo dev server and Tailwind Jit file-watcher
+1. `npm install`
+1. `npm start` to run hugo dev server and Tailwind Jit file-watcher
 
 # Production build
 
 1. `npm run build`
-2. Static files built to `public/` 
+1. Static files built to `public/` 
 
 # Deploy
 
 1. Push or Pull Request to main branch on GitHub. Netlify does the rest.
-2. Visit Netlify deployment at https://optimistic-mahavira-e63b9e.netlify.app/
+1. Check Deployment status at https://app.netlify.com/sites/optimistic-mahavira-e63b9e/deploys
+1. Visit Netlify deployment at https://optimistic-mahavira-e63b9e.netlify.app/
