@@ -4,10 +4,10 @@
 
 # Technology
 
-- Hugo (Extended binary for PostCSS support, `hugo v0.90.1-48907889+extended linux/amd64 BuildDate=2021-12-10T10:56:41Z VendorInfo=gohugoio`
+- Hugo Extended binary for PostCSS support, `hugo v0.90.1-48907889+extended linux/amd64 BuildDate=2021-12-10T10:56:41Z VendorInfo=gohugoio`
 - Node + npm
 - Tailwind CSS
-- Netlify
+- Netlify (Live at https://optimistic-mahavira-e63b9e.netlify.app/)
 
 # Log
 
@@ -30,3 +30,8 @@
 
 1. `npm run build`
 2. Static files built to `public/` 
+
+# Deploy
+
+1. Push or Pull Request to main branch on GitHub. Netlify does the rest.
+2. Visit Netlify deployment at https://optimistic-mahavira-e63b9e.netlify.app/
