@@ -1,0 +1,10 @@
+.DS_Store
+.idea
+*.log
+node_modules
+
+### Hugo ###
+# Generated files by hugo
+.hugo_build.lock
+/public/
+/resources/_gen/

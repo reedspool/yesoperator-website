@@ -1,0 +1,15 @@
+<!-- CSS from PostCSS -->
+
+<!-- themes/tailwind-theme/partials/head.html -->
+<head>
+  {{ $css := resources.Get "css/tw-output.css" }}
+
+  {{ if .Site.IsServer }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+  {{ else }}
+  {{ $css := $css | resources.PostCSS (dict "outputStyle" "compressed") | fingerprint }}
+  {{/* TODO Use this once we have baseURL setup properly */}}
+  {{/* <link rel="stylesheet" href="{{ $css.Permalink }}" integrity="{{ $css.Data.Integrity }}"> */}}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+  {{ end }}
+</head>
