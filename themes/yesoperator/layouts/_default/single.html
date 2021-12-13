@@ -24,10 +24,10 @@
     </ul>
     {{ end }}
     {{ with .PrevInSection }}
-    <span>Previous: <a class="previous" href="{{.Permalink}}">{{.Title}}</a></span>
+    <span>Previous: <a class="previous" href="{{.RelPermalink}}">{{.Title}}</a></span>
     {{ end }}
     {{ with .NextInSection }}
-    <span>Next: <a class="next" href="{{.Permalink}}">{{.Title}}</a></span>
+    <span>Next: <a class="next" href="{{.RelPermalink}}">{{.Title}}</a></span>
     {{ end }}
 </aside>
 {{ end }}
