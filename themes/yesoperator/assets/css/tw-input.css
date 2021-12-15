@@ -1,15 +1,15 @@
 @tailwind base;
-@tailwind componnts;
+@tailwind components;
 @tailwind utilities;
 
 @layer base {
     html,
     body {
-        @apply min-h-screen;
+        @apply min-h-screen h-screen flex flex-col;
     }
 
     main {
-        @apply p-4;
+        @apply flex-grow;
     }
 
     h1 {
@@ -37,8 +37,12 @@
         @apply list-decimal;
     }
 
+    nav {
+        @apply py-4;
+    }
+
     nav ul {
-        @apply list-none;
+        @apply list-none mt-0;
     }
 
     a {
@@ -55,8 +59,14 @@
     }
 }
 
-/* @layer components {
- } */
+@layer components {
+    .page-content {
+        @apply bg-gradient-to-b from-transparent via-purple-100/50 to-purple-100/50 p-4;
+    }
+
+    .page-title {
+    }
+ }
 
 @layer utilities {
     .filter-none {
@@ -65,5 +75,13 @@
 
     .filter-grayscale {
         filter: grayscale(104%);
+    }
+
+    .switchboard-bg {
+        background-image: url("/img/background.svg");
+        background-size: 200px;
+        background-color: hsla(145, 5%, 80%);
+
+        @apply bg-repeat;
     }
 }

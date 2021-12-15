@@ -1,0 +1,45 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
+text-anchor="middle" font-size="20">
+  <defs>
+    <symbol id="curly">
+      <text fill="transparent" x="50" y="50">
+      }</text>
+    </symbol>
+    <symbol id="round">
+      <text fill="transparent" x="50" y="50">
+      )</text>
+    </symbol>
+    <symbol id="angle">
+      <text fill="transparent" x="50" y="50">
+      &gt;</text>
+    </symbol>
+    <symbol id="brackets">
+      <use href="#curly" x="-16" y="-16" transform-origin="50% 50%"
+      transform="rotate(20)" />
+      <use href="#round" x="0" y="0" transform-origin="50% 50%"
+      transform="rotate(22)" />
+      <use href="#angle" x="16" y="16" transform-origin="50% 50%"
+      transform="rotate(25)" />
+    </symbol>
+    <symbol id="pattern">
+      <use href="#brackets" x="16" y="16" />
+      <use href="#brackets" x="16" y="16"
+      transform-origin="50% 50%" transform="rotate(180)" />
+    </symbol>
+    <linearGradient id="shadow" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="20%" stop-color="hsla(145, 5%, 80%)" />
+      <stop offset="100%" stop-color="hsla(145, 5%, 65%)" />
+    </linearGradient>
+  </defs>
+  <use href="#pattern" x="-5" y="-10" stroke="hsla(145, 5%, 75%)" />
+  <use href="#brackets" x="-10" y="50" stroke="hsla(145, 7%, 70%)" />
+  <use href="#brackets" x="-10" y="-50" stroke="hsla(145, 7%, 70%)" />
+  <use href="#brackets" x="-50" y="85" transform-origin="50% 50%" transform="rotate(180)" stroke="hsla(145, 9%, 70%)" />
+  <use href="#brackets" x="-50" y="-15" transform-origin="50% 50%" transform="rotate(180)" stroke="hsla(145, 9%, 70%)" />
+  <use href="#brackets" x="50" y="-15" transform-origin="50% 50%" transform="rotate(180)" stroke="hsla(145, 9%, 70%)" />
+  <use href="#pattern" x="32" y="68" stroke="hsla(145, 2%, 75%)"  />
+  <use href="#pattern" x="32" y="-32" stroke="hsla(145, 2%, 75%)" />
+  <use href="#pattern" x="-68" y="-32" stroke="hsla(145, 2%, 75%)" />
+  <!-- <rect x="1" y="1" width="99" height="99" stroke="gray" -->
+  <!-- stroke-width="1" fill="none" /> -->
+</svg>
