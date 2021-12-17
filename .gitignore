@@ -8,3 +8,6 @@ node_modules
 .hugo_build.lock
 /public/
 /resources/_gen/
+
+# Output of postCSS/tailwind build, no need to save
+/themes/yesoperator/assets/css/tw-output.css
