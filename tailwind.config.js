@@ -8,7 +8,14 @@ module.exports = {
     "./themes/yesoperator/**/*.{html,js,md}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['Jost', 'ui-sans-serif', 'system-ui'],
+        serif: ['"Andada Pro"', 'ui-serif', 'Georgia'],
+      },
+    },
   },
-  plugins: [],
+  plugins: [
+    require('tailwindcss/nesting'),
+  ],
 }
