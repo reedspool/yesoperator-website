@@ -4,7 +4,7 @@
 
 - Hugo Extended binary for PostCSS support, `hugo v0.90.1-48907889+extended linux/amd64 BuildDate=2021-12-10T10:56:41Z VendorInfo=gohugoio`
 - Node + npm
-- Tailwind CSS
+- PostCSS + Tailwind CSS (see package.json)
 - Netlify (Live at https://optimistic-mahavira-e63b9e.netlify.app/)
 
 # Log

@@ -10,4 +10,29 @@
     {{/* <link rel="stylesheet" href="{{ $css.Permalink }}" integrity="{{ $css.Data.Integrity }}"> */}}
     <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
     {{ end }}
+
+    <script type="text/javascript">
+     // Adapted from https://tailwindcss.com/docs/dark-mode
+     // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+     function setTheme(isDark) {
+         if (isDark) {
+             document.documentElement.classList.add('dark');
+             window.darkTheme = true;
+         } else {
+             document.documentElement.classList.remove('dark');
+             window.darkTheme = false;
+         }
+     }
+
+     setTheme(localStorage.theme === 'dark' ||
+         (!('theme' in localStorage) &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches));
+
+     window.addEventListener('load', () => {
+         document.querySelectorAll('[data-btn-toggle-dark-mode]').forEach((el) => {
+             console.log(el);
+             el.addEventListener('click', () => setTheme(! window.darkTheme));
+         })
+     })
+    </script>
 </head>

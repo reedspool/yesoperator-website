@@ -1,7 +1,16 @@
-<nav>
+<nav class="page-nav">
     <ul>
-        <li><a href="/">Yes Operator!</a></li>
-        <li><a href="{{ relref . "/pages/where" }}">Where?</a></li>
-        <li><a href="{{ relref . "/pages/why" }}">Why?</a></li>
+        <li>
+            <a href="/">
+                <img src="/img/opie.svg" alt="Yes Operator Logo" class="nav-logo" />
+                <img src="/img/opie-dark.svg" alt="Yes Operator Logo" class="nav-logo nav-logo-dark" />
+            </a>
+        </li>
+        <li><a href="/" class="">Yes Operator</a></li>
+        <li><a href="{{ relref . "/pages/where" }}">Where</a></li>
+        <li><a href="{{ relref . "/pages/why" }}">Why</a></li>
+        <li><a href="{{ relref . "/pages/contact" }}">Contact</a></li>
+        <li class="flex-grow"></li>
+        <li><button class="btn-theme" data-btn-toggle-dark-mode="true"><img src="/img/icon-sun-reshot.svg" alt="Light Mode" /> / <img src="/img/icon-moon-reshot.svg" alt="Dark Mode" /></button></li>
     </ul>
 </nav>
