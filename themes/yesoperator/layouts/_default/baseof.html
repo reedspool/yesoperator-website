@@ -2,12 +2,12 @@
 <html lang="en-US" class="dark">
     {{- partial "head.html" . -}}
     <body class="switchboard-bg">
-        <header>
+        <header class="bubble-container">
             {{- partial "header.html" . -}}
         </header>
-        <main class="page-content">
+        <main class="page-content bubble-container">
         {{- block "main" . }}{{- end }}
         </main>
-        <footer>{{- partial "footer.html" . -}}</footer>
+        <footer class="bubble-container">{{- partial "footer-default.html" . -}}</footer>
     </body>
 </html>

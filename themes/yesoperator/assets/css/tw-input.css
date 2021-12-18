@@ -38,7 +38,7 @@
     }
 
     nav {
-        @apply mx-4 mt-2 py-4;
+        @apply py-4;
     }
 
     nav ul {
@@ -96,20 +96,16 @@
 }
 
 @layer components {
-    .page-nav {
-        @apply bg-purple-100/60 rounded-md mx-4 mb-4 dark:bg-slate-800/95;
-    }
-
-    .page-content {
-        @apply flex flex-col bg-purple-100/60 rounded-md mx-4 mb-4 dark:bg-slate-800/95;
+    .bubble-container {
+        @apply flex flex-col bg-purple-100/60 rounded-md m-4 dark:bg-slate-800/95;
 
         & section {
-            @apply flex-grow mt-2 pb-4 px-4;
+            @apply flex-grow p-4;
         }
     }
 
     .page-title {
-        @apply w-full p-4;
+        @apply w-full p-4 pb-0;
     }
 
     .nav-logo {
