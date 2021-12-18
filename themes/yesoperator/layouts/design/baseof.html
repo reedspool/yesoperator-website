@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en-US" class="dark">
+    {{- partial "head.html" . -}}
+    <body class="switchboard-bg">
+        <header class="bubble-container">
+            {{- partial "header.html" . -}}
+        </header>
+        <main class="page-content bubble-container">
+        {{- block "main" . }}{{- end }}
+        </main>
+        <footer class="bubble-container">{{- partial "footer-default.html" . -}}</footer>
+    </body>
+</html>

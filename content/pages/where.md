@@ -15,6 +15,10 @@ Live streams and video uploads at [Yes Operator on YouTube](https://www.youtube.
 
 Moderated discussion at [r/YesOperator](https://YesOperator.reddit.com).
 
-## This site
+## Website
 
-Here, at [YesOp.live](https://yesop.live).
+Here, this site, that you're looking at. It's available at [YesOp.live](https://YesOp.live).
+
+You can check out the [visual patterns]({{< relref "/design/patterns" >}}) made to create this site. The source code is available on [GitHub](https://github.com/reedspool/yesoperator-website).
+
+

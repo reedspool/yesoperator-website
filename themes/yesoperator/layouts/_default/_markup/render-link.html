@@ -1,0 +1,2 @@
+{{/* From https://discourse.gohugo.io/t/simple-way-to-open-in-a-new-tab/28677/3 */}}
+<a href="{{ .Destination | safeURL }}"{{ with .Title}} title="{{ . }}"{{ end }}{{ if strings.HasPrefix .Destination "http" }} target="_blank" rel="noopener"{{ end }}>{{ .Text | safeHTML }}</a>
