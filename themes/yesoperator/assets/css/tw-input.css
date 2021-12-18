@@ -13,11 +13,19 @@
     }
 
     h1 {
-        @apply text-2xl py-4;
+        @apply text-xl py-4;
     }
 
     h2 {
-        @apply text-xl mt-4;
+        @apply text-lg pt-4;
+    }
+
+    h3 {
+        @apply pt-4;
+    }
+
+    h4 {
+        @apply text-sm pt-4;
     }
 
     p {
@@ -50,7 +58,9 @@
 
         @apply
             text-blue-700
+            px-0.5
             underline decoration-blue-700
+            underline-offset-2
             hover:decoration-blue-600
             hover:text-blue-600
             hover:bg-blue-600/10
@@ -84,13 +94,17 @@
         @apply font-serif font-semibold;
     }
 
+    footer {
+        @apply text-sm;
+    }
+
     @font-face {
         font-family: '"Andada Pro"';
         src: url("/fonts/AndadaPro/AndadaPro-VariableFont_wght.ttf") format("truetype");
     }
 
     @font-face {
-        font-family: 'Jost';
+        font-family: Jost;
         src: url("/fonts/Jost/Jost-VariableFont_wght.ttf") format("truetype");
     }
 }
@@ -123,7 +137,7 @@
     }
 
     .btn-theme {
-        @apply border border-slate-600 rounded-xl px-1 text-center pb-0.5;
+        @apply border border-slate-500 text-slate-500 rounded-xl px-1 text-center pb-0.5;
 
         & img {
             width: 1rem;
