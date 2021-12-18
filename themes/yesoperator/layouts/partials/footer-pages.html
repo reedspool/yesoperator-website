@@ -1,0 +1,32 @@
+{{ with .Params.topics }}
+<section>
+    <ul>
+        {{ range . }}
+        <li><a href="{{ "topics" | absURL}}{{ . | urlize }}">{{ . }}</a> </li>
+        {{ end }}
+    </ul>
+</section>
+{{ end }}
+{{ with .Params.tags }}
+<section>
+    <ul>
+        {{ range . }}
+        <li> <a href="{{ "tags" | absURL }}{{ . | urlize }}">{{ . }}</a> </li>
+        {{ end }}
+    </ul>
+</section>
+{{ end }}
+<section>
+    {{ with .PrevInSection }}
+    <span>Previous: <a class="previous" href="{{.RelPermalink}}">{{.Title}}</a></span>
+    {{ end }}
+    {{ with .NextInSection }}
+    <span>Next: <a class="next" href="{{.RelPermalink}}">{{.Title}}</a></span>
+    {{ end }}
+</section>
+<section>
+    <em>
+        <span>Published <time datetime="{{ .Date.Format "2006-02-02" }}" > {{ .Date.Format "Jan 2, 2006" }}</time>.</span>
+        <span>Updated <time datetime="{{ .Lastmod.Format "2006-02-02" }}">{{ .Lastmod.Format "Jan 2, 2006" }}</time>.</span>
+    </em>
+</section>
