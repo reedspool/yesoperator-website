@@ -14,6 +14,19 @@ module.exports = {
         sans: ['Jost', 'ui-sans-serif', 'system-ui'],
         serif: ['"Andada Pro"', 'ui-serif', 'Georgia'],
       },
+      colors: {
+        opie: {
+          100: 'hsl(160,9%,95%)',
+          200: 'hsl(160,9%,87%)',
+          300: 'hsl(160,9%,77%)',
+          400: 'hsl(160,19%,63%)',
+          500: 'hsl(160,19%,57%)',
+          600: 'hsl(160,25%,47%)',
+          700: 'hsl(160,59%,37%)',
+          800: 'hsl(160,49%,27%)',
+          900: 'hsl(160,59%,7%)',
+        },
+      },
     },
   },
   plugins: [
