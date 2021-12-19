@@ -18,10 +18,10 @@
 {{ end }}
 <section>
     {{ with .PrevInSection }}
-    <span>Previous: <a class="previous" href="{{.RelPermalink}}">{{.Title}}</a></span>
+    <div><span class="footer-link-label">Previous:</span> <a class="previous" href="{{.RelPermalink}}">{{.Title}}</a></div>
     {{ end }}
     {{ with .NextInSection }}
-    <span>Next: <a class="next" href="{{.RelPermalink}}">{{.Title}}</a></span>
+    <div><span class="footer-link-label">Next:</span> <a class="next" href="{{.RelPermalink}}">{{.Title}}</a></div>
     {{ end }}
 </section>
 <section>
