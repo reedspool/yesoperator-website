@@ -23,6 +23,6 @@ version="1.1" viewBox="0 0 168 168">
        />
     </symbol>
   </defs>
-  <use href="#opie" fill="black" x="5" y="5" transform="scale(1.05)" />
-  <use href="#opie" fill="rgb(168, 183, 204)"/>
+  <use href="#opie" fill="hsl(0,0%,10%)" x="5" y="5" transform="scale(1.05)" />
+  <use href="#opie" fill="hsl(160,19%,57%)"/>
 </svg>

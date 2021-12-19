@@ -57,19 +57,21 @@
         display: inline-block;
 
         @apply
-            text-blue-700
+            tracking-wide
+            text-opie-600
             px-0.5
-            underline decoration-blue-700
+            underline decoration-opie-600
             underline-offset-2
-            hover:decoration-blue-600
-            hover:text-blue-600
-            hover:bg-blue-600/10
-            dark:text-blue-500
-            dark:decoration-blue-500;
+            rounded-sm
+            hover:decoration-opie-500
+            /* hover:text-opie-500 */
+            hover:bg-opie-600/10
+            dark:text-opie-500
+            dark:decoration-opie-500;
     }
 
     strong {
-        @apply font-bold;
+        @apply font-bold tracking-wide;
     }
 
     hr {
@@ -77,6 +79,11 @@
     }
 
     footer {
+    }
+
+    th,
+    td {
+        @apply px-2 text-left;
     }
 
     /*
@@ -87,7 +94,7 @@
     }
 
     body {
-        @apply font-sans font-extralight text-slate-700 dark:text-slate-400;
+        @apply font-sans font-extralight text-slate-600 dark:text-slate-400 tracking-tight;
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -111,7 +118,11 @@
 
 @layer components {
     .bubble-container {
-        @apply flex flex-col bg-purple-100/60 rounded-md m-4 dark:bg-slate-800/95;
+        @apply
+            m-4 flex flex-col
+            bg-purple-100/90
+            border border-slate-400/60 rounded-md
+            dark:bg-slate-800/95;
 
         & section {
             @apply flex-grow p-4;
@@ -160,8 +171,7 @@
     .switchboard-bg {
         background-image: url("/img/background.svg");
         background-size: 200px;
-        background-color: hsla(145, 5%, 80%);
 
-        @apply bg-repeat dark:bg-slate-700;
+        @apply bg-repeat bg-opie-500 dark:bg-slate-700;
     }
 }
