@@ -19,9 +19,11 @@
      function setTheme(isDark) {
          if (isDark) {
              document.documentElement.classList.add('dark');
+             localStorage.theme = 'dark';
              window.darkTheme = true;
          } else {
              document.documentElement.classList.remove('dark');
+             localStorage.theme = 'light';
              window.darkTheme = false;
          }
      }
