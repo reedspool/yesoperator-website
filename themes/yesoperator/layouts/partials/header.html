@@ -1,17 +1,34 @@
-<nav>
-    <ul>
+<nav class="page-nav" data-toggle-page-nav=true>
+    <ul class="page-nav__small-header">
         <li>
-            <a href="/">
-                <img src="/img/opie.svg" alt="Yes Operator Logo" class="nav-logo" />
-                <img src="/img/opie-dark.svg" alt="Yes Operator Logo" class="nav-logo nav-logo-dark" />
+            <a href="/" class="nav-logo">
+                <img src="/img/opie.svg" alt="Yes Operator Logo" class="nav-logo__icon" />
+                <img src="/img/opie-dark.svg" alt="Yes Operator Logo" class="nav-logo__icon nav-logo__icon--dark" />
             </a>
         </li>
-        <li><a href="/" class="">Yes Operator</a></li>
-        <li><a href="{{ relref . "/pages/how" }}">How</a></li>
-        <li><a href="{{ relref . "/pages/where" }}">Where</a></li>
-        <li><a href="{{ relref . "/pages/why" }}">Why</a></li>
-        <li><a href="{{ relref . "/pages/contact" }}">Contact</a></li>
         <li class="flex-grow"></li>
-        <li>{{ partial "components/theme_switch_button.html" }}</li>
+        <li>
+            <button data-btn-nav-menu-toggle=true class="page-nav__btn-menu">
+                <span class="page-nav__btn-menu--close">X</span>
+                <span class="page-nav__btn-menu--open">&#9776;</span>
+            </button>
+        </li>
     </ul>
+    <div class="page-nav__scrollbox translate-x-full">
+        <ul class="page-nav__content">
+            <li class="hidden sm:inline-block">
+                <a href="/" class="nav-logo">
+                    <img src="/img/opie.svg" alt="Yes Operator Logo" class="nav-logo__icon" />
+                    <img src="/img/opie-dark.svg" alt="Yes Operator Logo" class="nav-logo__icon nav-logo__icon--dark" />
+                </a>
+            </li>
+            <li class="hidden md:inline-block"><a href="/" class="">Yes Operator</a></li>
+            <li class="list-item sm:inline-block"><a href="{{ relref . "/pages/how" }}">How</a></li>
+            <li class="list-item sm:inline-block"><a href="{{ relref . "/pages/where" }}">Where</a></li>
+            <li class="list-item sm:inline-block"><a href="{{ relref . "/pages/why" }}">Why</a></li>
+            <li class="list-item sm:inline-block"><a href="{{ relref . "/pages/contact" }}">Contact</a></li>
+            <li class="flex-grow"></li>
+            <li>{{ partial "components/theme_switch_button.html" }}</li>
+        </ul>
+    </div>
 </nav>

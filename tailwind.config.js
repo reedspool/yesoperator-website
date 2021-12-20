@@ -14,6 +14,9 @@ module.exports = {
         sans: ['Jost', 'ui-sans-serif', 'system-ui'],
         serif: ['"Andada Pro"', 'ui-serif', 'Georgia'],
       },
+      animation: {
+        'spin-slow': 'spin 2400s linear infinite',
+      },
       colors: {
         opie: {
           100: 'hsl(160,9%,95%)',

@@ -18,5 +18,8 @@ module.exports = {
     ],
     'declaration-block-trailing-semicolon': null,
     'no-descending-specificity': null,
+    'selector-list-comma-newline-after': null,
+    'selector-class-pattern': null,
+    'comment-empty-line-before': null
   },
 }

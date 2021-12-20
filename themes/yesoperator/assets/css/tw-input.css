@@ -1,40 +1,82 @@
+/*
+ * Custom media queries to match Tailwind breakpoints
+ * Uses https://github.com/postcss/postcss-custom-media
+ * References https://tailwindcss.com/docs/responsive-design
+ * Why? So if I update the Tailwind breakpoints I don't have to edit
+ * these everywhere
+ */
+@custom-media --min-w-sm  (min-width: 640px);
+@custom-media --min-w-md  (min-width: 768px);
+@custom-media --min-w-lg  (min-width: 1024px);
+@custom-media --min-w-xl  (min-width: 1280px);
+@custom-media --min-w-2xl (min-width: 1536px);
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+    /*
+     * Debug tool, add red border around everything
+     */
+    * {
+        /* border: 1px dashed rgba(250, 0, 0, 80%) !important; */
+    }
+
     html,
     body {
-        @apply min-h-screen max-w-full w-full flex flex-col;
+        min-width: 100px;
+
+        @apply
+            relative
+
+            min-h-screen
+            sm:min-w-full max-w-full w-full
+            flex flex-col
+            items-center;
+    }
+
+    body {
+        /* Don't apply overflow-x-hidden to html because it breaks sticky */
+        /* See https://stackoverflow.com/questions/50214383/position-sticky-not-working-with-body-overflow-x-hidden/54116725#54116725 */
+        @apply overflow-x-hidden;
+    }
+
+    header {
+        @apply max-w-full w-full;
     }
 
     main {
-        @apply flex-grow;
+        @apply flex-grow max-w-full w-full p-normal;
     }
 
-    h1 {
-        @apply text-xl py-4;
+    footer {
+        @apply max-w-full w-full;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        @apply text-xl pt-bigger;
+
+        &:first-child {
+            @apply pt-0;
+        }
     }
 
     h2 {
-        @apply text-lg pt-4;
-    }
-
-    h3 {
-        @apply pt-4;
+        @apply text-lg;
     }
 
     h4 {
-        @apply text-sm pt-4;
+        @apply text-sm;
     }
 
     p {
-        @apply pt-4;
+        @apply pt-normal max-w-prose;
     }
 
     ul,
     ol {
-        @apply list-inside mt-4 px-4;
+        @apply list-inside pt-normal px-normal;
     }
 
     ul {
@@ -46,11 +88,7 @@
     }
 
     nav {
-        @apply py-4;
-    }
-
-    nav ul {
-        @apply list-none mt-0 flex items-center justify-start gap-x-2 w-full;
+        @apply py-normal;
     }
 
     a {
@@ -78,19 +116,16 @@
         @apply my-6 mx-4;
     }
 
-    footer {
-    }
-
     th,
     td {
-        @apply px-2 text-left;
+        @apply px-normal text-left;
     }
 
     /*
      * Fonts
      */
     :root {
-        font-size: 26px;
+        font-size: 22px;
     }
 
     body {
@@ -102,7 +137,7 @@
     }
 
     footer {
-        @apply text-sm;
+        @apply text-sm p-normal;
     }
 
     @font-face {
@@ -121,34 +156,181 @@
         @apply
             m-4 flex flex-col
             bg-purple-100/90
-            border border-slate-400/60 rounded-md
-            dark:bg-slate-800/95;
+            dark:bg-slate-800/95 shadow-xl;
+
+        &header {
+            @apply m-0 z-50;
+
+            @media (--min-w-sm) {
+                @apply m-4;
+            }
+        }
+
+        &footer:empty {
+            @apply border-none hidden;
+        }
 
         & section {
-            @apply flex-grow p-4;
+            @apply flex-grow py-normal;
+        }
+
+        & section + section {
+            @apply pt-0;
+        }
+
+        @media (--min-w-sm) {
+            @apply border border-slate-400/60 rounded-md
+                w-10/12;
+        }
+
+        @media (--min-w-md) {
+            width: 40rem;
         }
     }
 
     .page-title {
-        @apply w-full p-4 pb-0;
+    }
+
+    header {
+        @apply sticky inset-0 p-0 m-0 w-full min-h-full;
+    }
+
+    .page-nav {
+        @apply
+            relative w-full min-h-full
+            flex flex-col
+            shadow-xl sm:filter-none;
+
+        & ul {
+            @apply list-none mt-0 pt-0;
+
+            & li {
+                @apply pt-0;
+            }
+        }
+
+        & .page-nav__small-header {
+            @apply
+                px-normal
+                flex w-full h-full items-center justify-center
+                sm:hidden;
+        }
+
+        & .page-nav__scrollbox {
+            @apply
+                absolute
+                inset-0
+                flex-grow
+                flex
+                pb-normal
+                top-full
+                min-h-screen
+                max-h-screen
+                overflow-y-auto
+                /* transition-transform */
+                transition-opacity
+                opacity-0
+                overflow-hidden
+                flex flex-wrap flex-col
+                items-start justify-start
+                bg-purple-100/90
+                dark:bg-slate-800/95
+                sm:bg-inherit
+                origin-top-left;
+
+            /* transform: translate(0, -150vh); */
+
+            @media (--min-w-sm) {
+                @apply relative
+                    inset-auto
+                    pb-0
+                    min-h-0
+                    opacity-100
+                    flex-grow-0
+                    transition-none
+                    transform-none
+                    flex-row;
+            }
+
+            & li {
+                @apply pt-2 sm:pt-0;
+            }
+        }
+
+        &.page-nav--open .page-nav__scrollbox {
+            @apply opacity-100;
+        }
+
+        & .page-nav__content {
+            padding-bottom: 40vh;
+            margin-bottom: 2.5rem;
+
+            @apply w-full overflow-auto;
+
+            @media (--min-w-sm) {
+                @apply static
+                    min-h-0
+                    gap-x-2
+                    pb-0
+                    mb-0
+                    opacity-100
+                    flex-grow-0
+                    transition-none
+                    transform-none
+                    items-center justify-between
+                    flex
+                    flex-row;
+
+                & li {
+                    /* display: inline-block; */
+                }
+            }
+        }
+
+        & .page-nav__btn-menu {
+            @apply text-center w-6
+                text-opie-500 font-bold;
+        }
+
+        & .page-nav__btn-menu--close {
+            @apply hidden;
+        }
+
+        &.page-nav--open .page-nav__btn-menu--close {
+            @apply inline-block;
+        }
+
+        &.page-nav--open .page-nav__btn-menu--open {
+            @apply hidden;
+        }
+
+    }
+
+    body.page-nav--open {
+        /* @apply overflow-clip; */
     }
 
     .nav-logo {
-        width: 2rem;
-        height: auto;
+        @apply flex items-center justify-center h-full w-full;
 
-        @apply dark:hidden;
+        & .nav-logo__icon {
+            width: auto;
+            height: 1.5rem;
 
-        &.nav-logo-dark {
-            width: 2rem;
-            height: auto;
+            @apply dark:hidden ;
 
-            @apply hidden dark:block;
+            &.nav-logo__icon--dark {
+                @apply hidden dark:block;
+            }
         }
     }
 
     .btn-theme {
-        @apply border border-slate-500 text-slate-500 rounded-xl px-1 text-center pb-0.5;
+        @apply
+            border border-slate-500
+            rounded-xl
+            text-slate-500
+            px-1 text-center pb-0.5;
 
         & img {
             width: 1rem;
@@ -164,18 +346,98 @@
 }
 
 @layer utilities {
-    .filter-none {
-        filter: none;
+    /*
+     * Responsive padding (normal)
+     */
+    .p-normal {
+        @apply p-4 sm:p-3 md:p-4;
     }
 
-    .filter-grayscale {
-        filter: grayscale(104%);
+    .py-normal {
+        @apply py-4 sm:py-3 md:py-4;
+    }
+
+    .px-normal {
+        @apply px-4 sm:px-3 md:px-4;
+    }
+
+    .pt-normal {
+        @apply pt-4 sm:pt-3 md:pt-4;
+    }
+
+    .pb-normal {
+        @apply pb-4 sm:pb-3 md:pb-4;
+    }
+
+    /*
+     * Responsive padding (bigger)
+     */
+    .p-bigger {
+        @apply p-6 sm:p-5 md:p-4;
+    }
+
+    .py-bigger {
+        @apply py-6 sm:py-5 md:py-4;
+    }
+
+    .px-bigger {
+        @apply px-6 sm:px-5 md:px-6;
+    }
+
+    .pt-bigger {
+        @apply pt-6 sm:pt-5 md:pt-6;
+    }
+
+    .pb-bigger {
+        @apply pb-6 sm:pb-5 md:pb-6;
+    }
+
+    /*
+     * Responsive margin (normal)
+     */
+    .m-normal {
+        @apply m-4 sm:m-3 md:m-4;
+    }
+
+    .my-normal {
+        @apply my-4 sm:my-3 md:my-4;
+    }
+
+    .mx-normal {
+        @apply mx-4 sm:mx-3 md:mx-4;
+    }
+
+    .mt-normal {
+        @apply mt-4 sm:mt-3 md:mt-4;
+    }
+
+    .mb-normal {
+        @apply mb-4 sm:mb-3 md:mb-4;
     }
 
     .switchboard-bg {
-        background-image: url("/img/background.svg");
-        background-size: 200px;
+        @apply relative z-10;
 
-        @apply bg-repeat bg-opie-500 dark:bg-slate-700;
+        &::before {
+            content: "";
+
+            @apply
+                bg-repeat bg-opie-500 dark:bg-slate-700
+                fixed -z-10
+                animate-spin-slow;
+
+            top: -9999px;
+            bottom: -9999px;
+            left: -9999px;
+            right: -9999px;
+            background-image: url("/img/background.svg");
+            background-size: 64px;
+            transform: rotate(180deg);
+            transform-origin: 8000px 13000px;
+
+            @media (--min-w-sm) {
+                background-size: 200px;
+            }
+        }
     }
 }

@@ -2,6 +2,7 @@
     <title>{{ .Title }}</title>
     <link rel="icon" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" sizes="16x16" href="/favicon-16x16.png" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0" />
     {{ $css := resources.Get "css/tw-output.css" }}
 
     {{ if .Site.IsServer }}
@@ -14,6 +15,8 @@
     {{ end }}
 
     <script type="text/javascript">
+     const classPageNavOpen = "page-nav--open";
+
      // Adapted from https://tailwindcss.com/docs/dark-mode
      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
      function setTheme(isDark) {
@@ -28,15 +31,60 @@
          }
      }
 
+     function toggleNavMenu() {
+        const elsNavMenu = document.querySelectorAll("[data-toggle-page-nav]");
+        elsNavMenu.forEach((el) => {
+            if (el.matches(`.${classPageNavOpen}`)) {
+                el.classList.remove(classPageNavOpen);
+                document.body.classList.remove(classPageNavOpen);
+            } else {
+                el.classList.add(classPageNavOpen);
+                document.body.classList.add(classPageNavOpen);
+            }
+        });
+     }
+
+     function navMenuTransitionEnd() {
+         const elScrollBox = document.querySelector('.page-nav__scrollbox');
+         if (document.body.matches(`.${classPageNavOpen}`)) {
+             elScrollBox.classList.remove('translate-x-full');
+         } else {
+             elScrollBox.classList.add('translate-x-full');
+         }
+
+     }
+
      setTheme(localStorage.theme === 'dark' ||
          (!('theme' in localStorage) &&
           window.matchMedia('(prefers-color-scheme: dark)').matches));
 
      window.addEventListener('load', () => {
-         document.querySelectorAll('[data-btn-toggle-dark-mode]').forEach((el) => {
-             console.log(el);
-             el.addEventListener('click', () => setTheme(! window.darkTheme));
-         })
+         document
+             .querySelectorAll('[data-btn-toggle-dark-mode]')
+             .forEach((el) => {
+                 el.addEventListener('click', () => setTheme(! window.darkTheme));
+             });
+
+         document
+             .querySelectorAll(`[data-btn-nav-menu-toggle]`)
+             .forEach((el) => {
+                 el.addEventListener('click', () => toggleNavMenu());
+             });
+
+         document
+             .querySelectorAll(`.page-nav`)
+             .forEach((el) => {
+                 el.addEventListener('transitionend', () => navMenuTransitionEnd())
+             })
      })
+
+
+     var styleElem = document.head.appendChild(document.createElement("style"));
+     var rotate = Math.random() * 360;
+
+     styleElem.innerHTML =
+         `.switchboard-bg::before {
+             transform: rotate(${rotate}deg) !important;
+          }`;
     </script>
 </head>

@@ -7,7 +7,7 @@
     "start": "NODE_ENV=development npm-run-all --print-label clean base:twcss --parallel dev:*",
     "build": "NODE_ENV=production npm-run-all --print-label clean base:twcss base:twcss prod:hugo",
     "dev:twcsswatch": "npm run base:twcss -- --watch",
-    "dev:hugo": "hugo server -w",
+    "dev:hugo": "hugo server --bind=0.0.0.0 -w",
     "base:twcss": "postcss ./themes/yesoperator/assets/css/tw-input.css -o ./themes/yesoperator/assets/css/tw-output.css",
     "prod:hugo": "hugo --gc --minify"
   },
@@ -19,6 +19,7 @@
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.5",
     "postcss-cli": "^9.1.0",
+    "postcss-custom-media": "^8.0.0",
     "postcss-import": "^14.0.2",
     "postcss-minify": "^1.1.0",
     "postcss-nesting": "^10.0.3",
